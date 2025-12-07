@@ -1,6 +1,6 @@
 
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Ipost } from '../models/post';
 
@@ -37,6 +37,8 @@ export class PostserviceService {
     
   ) { }
 
+  editpost$:Subject<Ipost>=new Subject()
+
   fetchallpost():Observable<Array<Ipost>>{
     return of(this.postArr)
   }
@@ -51,6 +53,13 @@ export class PostserviceService {
     console.log(getIndex)
     this.postArr.splice(getIndex, 1)
   }
+
+
+  updatePost(post:Ipost){
+    let getIndex=this.postArr.findIndex(p=>p.id===post.id);
+    this.postArr[ getIndex]=post
+  }
+ 
 
 
 

@@ -14,7 +14,7 @@
     </mat-card-content>
     <mat-card-actions>
         <div class="d-flex justify-content-between">
-        <button mat-raised-button color="primary">Edit</button>
+        <button mat-raised-button color="primary" (click)="onEdit(post)">Edit</button>
         <button mat-raised-button color="warn" (click)="onRemove(post.id)">Remove</button>
         </div>
     </mat-card-actions>

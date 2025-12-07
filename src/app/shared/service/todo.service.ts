@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { Itodo } from '../models/todo';
 
 @Injectable({
@@ -27,6 +27,8 @@ export class TodoService {
      ]
   constructor() { }
 
+   editTodo$:Subject<Itodo>=new Subject()
+
    fetchAllTodo():Observable<Array<Itodo>>{
    return of(this.todoarr) 
   }
@@ -40,5 +42,13 @@ export class TodoService {
     let getIndex=this.todoarr.findIndex(todo=>todo.id===id)
     console.log(getIndex)
     this.todoarr.splice(getIndex, 1)
+ }
+
+ updateObj(updated:Itodo){
+
+  const index = this.todoarr.findIndex(t => t.id === updated.id);
+  this.todoarr[index] = updated;  
+  
+
  }
 }

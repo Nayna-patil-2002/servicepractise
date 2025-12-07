@@ -14,6 +14,9 @@
         <input matInput formControlName="userId">
     </mat-form-field> -->
 
-    <button mat-raised-button color="primary">Add Post</button>
+    <button mat-raised-button color="primary"
+    *ngIf="!isIneditMode" 
+    type="submit">Add Post</button>
+    <button mat-raised-button color="primary" type="button" *ngIf="isIneditMode" (click)="onUpdate()">Update Post</button>
 </form>
 

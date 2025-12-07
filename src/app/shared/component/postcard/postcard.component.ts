@@ -43,4 +43,9 @@ export class PostcardComponent implements OnInit {
    }
   }
 
+   onEdit(post:Ipost){
+    console.log(post)
+     this._postservice.editpost$.next(post)
+  }
+
 }

@@ -10,6 +10,8 @@ import { TodoformComponent } from './shared/component/todoform/todoform.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { PostcardComponent } from './shared/component/postcard/postcard.component';
 import { PostformComponent } from './shared/component/postform/postform.component';
+import { TableComponent } from './shared/component/table/table.component';
+import { TableformComponent } from './shared/component/tableform/tableform.component';
 
 
 @NgModule({
@@ -19,6 +21,8 @@ import { PostformComponent } from './shared/component/postform/postform.componen
     TodoformComponent,
     PostcardComponent,
     PostformComponent,
+    TableComponent,
+    TableformComponent,
    
   ],
   imports: [

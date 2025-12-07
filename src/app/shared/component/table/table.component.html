@@ -1,0 +1,23 @@
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>SrNo.</th>
+            <th>Name</th>
+            <th>Categoury</th>
+            <th>level</th>
+            <th>Edit</th>
+            <th>Remove</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let subject of subjectobj; let i=index">
+            <td>{{i+1}}</td>
+            <td>{{subject.name}}</td>
+            <td>{{subject.category}}</td>
+            <td>{{subject.level}}</td>
+            <td><button class="btn btn-sm btn-primary" (click)="onEdit(subject)">Edit</button></td>
+            <td><button class="btn btn-sm btn-danger" (click)="onRemove(subject)">Remove</button></td>
+        </tr>
+    </tbody>
+</table>

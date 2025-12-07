@@ -49,4 +49,9 @@ export class TodoComponent implements OnInit {
      
   }
 
+  onEdit(todo:Itodo){
+    console.log(todo)
+   this._todoService.editTodo$.next(todo)
+  }
+
 }

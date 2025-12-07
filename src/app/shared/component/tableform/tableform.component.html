@@ -1,0 +1,25 @@
+<form [formGroup]="subForm" (ngSubmit)="onSubAdd()">
+    <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Category</mat-label>
+        <input matInput formControlName="category">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>select</mat-label>
+        <mat-select formControlName="level">
+         <mat-option value="Intermediate">Intermediate</mat-option>
+        <mat-option value="Advanced">Advanced</mat-option>
+        <mat-option value="Basic">Basic</mat-option>
+     </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary"
+    *ngIf="!isIneditMode" 
+    type="submit">Add Post</button>
+    <button mat-raised-button color="primary" type="button" *ngIf="isIneditMode" (click)="onUpdate()">Update Post</button>
+</form>

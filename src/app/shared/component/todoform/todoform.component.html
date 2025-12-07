@@ -4,6 +4,12 @@
    <div class="form-group">
    
     <input type="text" formControlName="item" class="form-control mb-4">
-    <button mat-raised-button color="primary">Add Todo</button>
+    <button 
+    *ngIf="!IsinEditMode"
+    mat-raised-button color="primary" type="submit">Add Todo</button>
+    <button mat-raised-button color="primary" type="button"
+    *ngIf="IsinEditMode"
+    (click)="onUpdateTodo()"
+    >Update Todo</button>
    </div>
 </form>

@@ -12,6 +12,8 @@ import { SnackabarService } from '../../service/snackabar.service';
 })
 export class TodoformComponent implements OnInit {
   todoForm!:FormGroup
+  IsinEditMode:boolean=false;
+  editobj!:Itodo;
   constructor(
      private _unic:UniqService,
      private _todoservice:TodoService,
@@ -20,6 +22,8 @@ export class TodoformComponent implements OnInit {
 
   ngOnInit(): void {
    this.createTodoForm()
+   this.editTodo()
+
   }
 
   createTodoForm(){
@@ -41,7 +45,37 @@ export class TodoformComponent implements OnInit {
       
     }
 
+
    
+  }
+
+  editTodo(){
+   this._todoservice.editTodo$
+     .subscribe({
+      next:res=>{
+        console.log(res)
+        this.editobj=res
+        this.IsinEditMode=true
+        this.todoForm.patchValue(res)
+         
+      },
+      error:err=>{
+        console.log(err)
+      }
+     })
+  }
+
+  onUpdateTodo(){
+    if(this.todoForm.valid){
+      let updateObj={...this.todoForm.value,
+        id:this.editobj.id
+      }
+      console.log(updateObj)
+      this._todoservice.updateObj(updateObj)
+      this.todoForm.reset()
+      this._sanackbar.Opensnackbar(`This ${updateObj.item} updated succesfully.`)
+      this.IsinEditMode=false
+    }
   }
 
   
