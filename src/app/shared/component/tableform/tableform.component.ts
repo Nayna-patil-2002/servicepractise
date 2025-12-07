@@ -67,7 +67,7 @@ export class TableformComponent implements OnInit {
       id:this.editObj.id
     }
     this._tableServicce.onUpdate(updateobj)
-
+    this.isIneditMode=false
     this.subForm.reset()
       this._snackbar.Opensnackbar(`This ${updateobj.name} updated succesfully.`)
    }

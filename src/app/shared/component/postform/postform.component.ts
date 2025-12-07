@@ -68,6 +68,7 @@ export class PostformComponent implements OnInit {
         console.log(updateobj)
          
         this._postservice.updatePost(updateobj)
+        this.postForm.reset()
         this.isIneditMode=false;
     }
 
