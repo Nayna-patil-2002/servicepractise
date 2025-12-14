@@ -2,8 +2,8 @@
 <div class="container mt-5">
     <div class="row mb-4">
         <div class="col-md-8 offset-md-2">
-           <ul  class="list-group" *ngFor="let pass of passenger">
-              <li class="list-group-item">
+           <ul  class="list-group">
+              <li class="list-group-item" *ngFor="let pass of passenger">
                 {{pass.fullName}}
               </li>
            </ul>
