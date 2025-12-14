@@ -1,0 +1,19 @@
+  <div *ngFor="let p of pass">
+      <mat-card class="mb-4">
+    
+
+     <mat-card-content>
+       <input type="text" [value]="p.fullName" class="form-control" [disabled]="!isInEditMode" #fn> 
+
+
+       <h3>{{p.checkInDate|date}}</h3>
+     </mat-card-content>
+
+     <mat-card-actions>
+       <button mat-raised-button color="primary" *ngIf="!isInEditMode" (click)="isInEditMode=true">Edit</button>
+       <button mat-raised-button color="primary" *ngIf="isInEditMode" (click)="!isInEditMode=false; onUpdate(fn, p)">Done</button>
+       <button mat-raised-button color="warn" (click)="onRemove(p)">Remove</button>
+     </mat-card-actions>
+  </mat-card>
+  </div>
+  

@@ -1,0 +1,18 @@
+
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col-md-8 offset-md-2">
+           <ul  class="list-group" *ngFor="let pass of passenger">
+              <li class="list-group-item">
+                {{pass.fullName}}
+              </li>
+           </ul>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+          <app-passengercard [pass]="passenger"></app-passengercard>
+      </div>
+    </div>
+</div>

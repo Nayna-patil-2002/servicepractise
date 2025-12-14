@@ -13,6 +13,10 @@ import { PostformComponent } from './shared/component/postform/postform.componen
 import { TableComponent } from './shared/component/table/table.component';
 import { TableformComponent } from './shared/component/tableform/tableform.component';
 
+import { PassengerModule } from './passenger/passenger.module';
+import { MoviecardComponent } from './shared/component/moviecard/moviecard.component';
+import { MovieformComponent } from './shared/component/movieform/movieform.component';
+
 
 @NgModule({
   declarations: [
@@ -23,6 +27,9 @@ import { TableformComponent } from './shared/component/tableform/tableform.compo
     PostformComponent,
     TableComponent,
     TableformComponent,
+    MoviecardComponent,
+    MovieformComponent,
+    
    
   ],
   imports: [
@@ -31,6 +38,7 @@ import { TableformComponent } from './shared/component/tableform/tableform.compo
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
+    PassengerModule
    
   ],
   providers: [],
