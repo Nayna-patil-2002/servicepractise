@@ -9,13 +9,14 @@ import { PassengerService } from 'src/app/shared/service/passenger.service';
 })
 export class PassengerDashbordComponent implements OnInit {
    passenger:Array<Ipass>=[]
-   
+   checkInCount!:number
   constructor(
     private _passengerService:PassengerService
   ) { }
 
   ngOnInit(): void {
     this.fetchAllpass()
+    this.getCheckInCount()
   }
 
   fetchAllpass(){
@@ -31,4 +32,12 @@ export class PassengerDashbordComponent implements OnInit {
       })
   }
 
+  getCheckInCount() {
+  let arr = this.passenger.filter(pass => pass.checkedIn);
+  this.checkInCount = arr.length;
+}
+
+getRemove(flag:boolean){
+  this.getCheckInCount()
+}
 }

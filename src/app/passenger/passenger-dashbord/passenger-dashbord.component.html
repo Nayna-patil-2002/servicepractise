@@ -1,5 +1,9 @@
 
 <div class="container mt-5">
+<div class="row mb-4">
+   <app-passenger-count [totalpassCount]="passenger.length" [checkInCount]="checkInCount"></app-passenger-count>
+</div>
+
     <div class="row mb-4">
         <div class="col-md-8 offset-md-2">
            <ul  class="list-group">
@@ -12,7 +16,7 @@
 
     <div class="row">
       <div class="col-md-8 offset-md-2">
-          <app-passengercard [pass]="passenger"></app-passengercard>
+          <app-passengercard [pass]="pass" *ngFor="let pass of passenger" (emitremoveFlag)="getRemove($event)" ></app-passengercard>
       </div>
     </div>
 </div>

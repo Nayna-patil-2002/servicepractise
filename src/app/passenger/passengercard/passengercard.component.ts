@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Ipass } from 'src/app/shared/models/passenger';
 import { PassengerService } from 'src/app/shared/service/passenger.service';
@@ -11,7 +11,8 @@ import { SnackabarService } from 'src/app/shared/service/snackabar.service';
   styleUrls: ['./passengercard.component.scss']
 })
 export class PassengercardComponent implements OnInit {
-    @Input() pass!:Array<Ipass>
+    @Input() pass!:Ipass
+    @Output() emitremoveFlag:EventEmitter<boolean>=new EventEmitter<boolean>()
     // @ViewChild('fn') fn!:HTMLInputElement
     isInEditMode:boolean=false
   constructor(
@@ -43,6 +44,7 @@ export class PassengercardComponent implements OnInit {
       .subscribe(res=>{
          if(res){
            this._passengerService.removePass(p)
+            this.emitremoveFlag.emit(true)
            this._snackbar.Opensnackbar(`This passenger ${p.fullName} removed succesfully.`)
          }
       })

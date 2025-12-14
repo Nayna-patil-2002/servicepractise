@@ -19,12 +19,12 @@ export class PostserviceService {
     {
       title:"sass",
       body:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur aperiam iste, vel cum dolor doloremque alias aliquam autem. Error, et quasi! Omnis alias quaerat dignissimos reiciendis culpa odio, corrupti delectus.",
-      id:"1"
+      id:"2"
     },
     {
       title:"flex",
       body:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur aperiam iste, vel cum dolor doloremque alias aliquam autem. Error, et quasi! Omnis alias quaerat dignissimos reiciendis culpa odio, corrupti delectus.",
-      id:"1"
+      id:"3"
     },
     {
       title:"javascript",
@@ -57,7 +57,7 @@ export class PostserviceService {
 
   updatePost(post:Ipost){
     let getIndex=this.postArr.findIndex(p=>p.id===post.id);
-    this.postArr[ getIndex]=post
+    this.postArr[getIndex]=post
   }
  
 

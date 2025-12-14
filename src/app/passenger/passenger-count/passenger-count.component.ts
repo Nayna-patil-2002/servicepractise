@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-passenger-count',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./passenger-count.component.scss']
 })
 export class PassengerCountComponent implements OnInit {
-
+  @Input() totalpassCount!:number
+  @Input() checkInCount!:number
   constructor() { }
 
   ngOnInit(): void {
